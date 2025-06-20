@@ -1,10 +1,3 @@
-// Variables globales
-let currentMode = "frToEn";
-let currentWord = {};
-let score = 0;
-let totalQuestions = 0;
-let askedWords = [];
-
 // Dictionnaire de vocabulaire informatique
 const vocabulary = {
     "Cadre de travail": "Framework",
@@ -59,6 +52,100 @@ const vocabulary = {
     Bibliothèque: "Library",
 };
 
+vocabulaire_expressions = {
+    "Utiliser des tableaux pour stocker plusieurs valeurs dans une seule variable":
+        "Use arrays to store multiple values in a single variable",
+    "Créer une chaîne en Java": "Create a string in Java",
+    "Exécuter des boucles": "Execute loops",
+    "Effectuer une opération d'entrée ou de sortie":
+        "Perform an input or output operation",
+    "Traiter une information représentée sous sa forme binaire":
+        "Process a binary information",
+    "Comprendre les principaux livrables, les jalons, ainsi que les rôles et responsabilités":
+        "Understand the main deliverables, milestones, roles and responsibilities",
+    "Utiliser les opérateurs booléens pour affiner les résultats de recherche":
+        "Use Boolean operators to refine search results",
+    "Créer une procédure stockée dans une base de données":
+        "Create a stored procedure in a database",
+    "Utiliser les algorithmes les plus efficaces possibles":
+        "Use the most efficient algorithms possible",
+    "Développer des solutions logicielles fiables et fonctionnelles":
+        "Develop reliable and functional software solutions",
+    "Se positionner comme expert technique":
+        "Position oneself as a technical expert",
+    "Gérer et optimiser la base de données": "Manage and optimize the database",
+    "Réaliser une étude logicielle": "Conduct a software study",
+    "Concevoir l'architecture des applications":
+        "Design application architecture",
+    "Assurer la gestion des données": "Ensure data management",
+    "Sécuriser les applications": "Secure applications",
+    "Implémenter des solutions logicielles": "Implement software solutions",
+    "Créer des programmes": "Build programs",
+    "Écrire et tester le code": "Write and test code",
+    "Collaborer avec des développeurs": "Collaborate with developers",
+    "Utiliser des outils de développement": "Use development tools",
+    "Créer des applications ergonomiques": "Create ergonomic applications",
+    "Écouter, analyser et rédiger les besoins":
+        "Listen, analyze and write needs",
+    "Être garant de la pérennité et de l'évolution des solutions":
+        "Guarantee the sustainability and evolution of solutions",
+    "Respecter les délais, les coûts et la qualité":
+        "Meet deadlines, costs and quality",
+    "Satisfaire les attentes du client": "Meet client expectations",
+    "Piloter un projet d'ingénierie logicielle":
+        "Lead a software engineering project",
+    "Construire un cahier des charges": "Build specifications",
+    "Gérer les données de l'entreprise": "Manage company data",
+    "Développer des applications mobiles": "Develop mobile apps",
+    "Accompagner la stratégie de l'entreprise":
+        "Support the company's strategy",
+    "Suivre les principes et bonnes pratiques de développement":
+        "Follow development principles and best practices",
+    "Analyser et identifier tous les problèmes potentiels":
+        "Analyze and identify any potential problems",
+    "Améliorer et maintenir le logiciel à long terme":
+        "Improve and maintain the software in the long term",
+    "Traduire le besoin du client en demandes fonctionnelles":
+        "Translate the client's need into functional demands",
+    "Analyser et décrire les tâches à réaliser par l'ordinateur":
+        "Analyze and describe the tasks to be performed by the computer",
+    "Déterminer et schématiser les fonctionnalités du logiciel":
+        "Determine and schematize the software functionalities",
+    "Déceler les défauts de programmation": "Identify programming defects",
+    "Effectuer des traitements par lot": "Perform batch processes",
+    "Contrôler les évolutions et les différentes versions du logiciel":
+        "Control developments and different versions of the software",
+    "Maintenir en condition opérationnelle le logiciel":
+        "Keep the software in operational condition",
+    "Mettre en production à l'issue des phases de qualification et d'intégration":
+        "Put into production after qualification and integration phases",
+    "Rédiger le code source qui constitue le corps du logiciel":
+        "Write the source code that forms the body of the software",
+    "Mettre en œuvre l'agilité au sein d'une équipe de développeurs":
+        "Implement agility as part of a team of developers",
+    "Diriger des projets collaboratifs": "Lead collaborative projects",
+    "Vérifier que les fonctions offertes par le logiciel correspondent aux attentes du client":
+        "Ensure the software features meet client expectations",
+    "Définir les étapes clés du cycle de vie du projet":
+        "Define key lifecycle milestones for the project",
+    "Intégrer les environnements de développement":
+        "Integrate development environments",
+    "Gérer les modifications apportées au code source":
+        "Manage changes to source code",
+    "Déployer le logiciel sur un serveur d'applications":
+        "Deploy the software to an application server",
+};
+
+// Variables globales
+let currentMode = "frToEn";
+let currentWord = {};
+let score = 0;
+let totalQuestions = 0;
+let askedWords = [];
+
+let testType = "mots"; // "mots" ou "expressions"
+const maxQuestions = 50;
+
 document.addEventListener("DOMContentLoaded", function () {
     nextWord();
     document.getElementById("answer").focus();
@@ -69,13 +156,40 @@ function setMode(mode) {
     score = 0;
     totalQuestions = 0;
     askedWords = [];
+
     document.querySelectorAll(".mode-btn").forEach((btn) => {
         btn.classList.remove("active");
     });
-    event.target.classList.add("active");
+
+    event.target.classList.add("active"); // ou remplace-le par une version plus robuste si tu veux
 
     document.getElementById("statsBtn")?.remove(); // Supprimer bouton stats s'il existe
     nextWord();
+}
+
+function setTestType(type) {
+    testType = type;
+    document.getElementById("testTitle").textContent =
+        type === "mots" ? "Test de vocabulaire" : "Test d'expressions";
+
+    score = 0;
+    totalQuestions = 0;
+    askedWords = [];
+
+    document.getElementById("feedback").textContent = "";
+    document.getElementById("answer").value = "";
+
+    document.getElementById("statsBtn")?.remove();
+
+    nextWord();
+
+    // Mettre en évidence le bouton actif
+    document.querySelectorAll(".testtype-btn").forEach((btn) => {
+        btn.classList.remove("active");
+    });
+    document
+        .querySelector(`.testtype-btn[data-type="${type}"]`)
+        ?.classList.add("active");
 }
 
 function nextWord() {
@@ -84,7 +198,9 @@ function nextWord() {
         return;
     }
 
-    const allWords = Object.entries(vocabulary);
+    const sourceDict =
+        testType === "mots" ? vocabulary : vocabulaire_expressions;
+    const allWords = Object.entries(sourceDict);
     let unused = allWords.filter(([fr, en]) => {
         const q = currentMode === "frToEn" ? fr : en;
         return !askedWords.includes(q);
@@ -141,11 +257,12 @@ function handleKey(event) {
 
 function endSession() {
     // Enregistrer score
-    const history = JSON.parse(localStorage.getItem("testHistory")) || [];
+    const key = testType === "mots" ? "testHistory_mots" : "testHistory_expr";
+    const history = JSON.parse(localStorage.getItem(key)) || [];
     const now = new Date().toLocaleString("fr-FR");
     history.unshift({ date: now, score: score });
     if (history.length > 10) history.length = 10;
-    localStorage.setItem("testHistory", JSON.stringify(history));
+    localStorage.setItem(key, JSON.stringify(history));
 
     // Afficher bouton stats
     const container = document.querySelector(".app-container");

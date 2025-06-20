@@ -338,16 +338,25 @@
 
         <div class="app-container">
             <div class="header">
+                <h1 class="title" id="testTitle">Test de vocabulaire</h1>
                 <h1 class="title">Révisions Vocab</h1>
                 <p class="subtitle">Informatique • Français ⇌ Anglais</p>
             </div>
 
-            <div class="mode-selector">
-                <button class="mode-btn active" onclick="setMode('frToEn')">
-                    <i class="fas fa-arrow-right"></i> FR → EN
+            <div class="mode-selector" style="margin-bottom: 20px">
+                <button
+                    class="mode-btn testtype-btn active"
+                    data-type="mots"
+                    onclick="setTestType('mots')"
+                >
+                    <i class="fas fa-font"></i> Mots
                 </button>
-                <button class="mode-btn" onclick="setMode('enToFr')">
-                    <i class="fas fa-arrow-left"></i> EN → FR
+                <button
+                    class="mode-btn testtype-btn"
+                    data-type="expressions"
+                    onclick="setTestType('expressions')"
+                >
+                    <i class="fas fa-comment-dots"></i> Expressions
                 </button>
             </div>
 
