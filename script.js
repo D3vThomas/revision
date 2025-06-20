@@ -8,8 +8,7 @@ let askedWords = [];
 // Dictionnaire de vocabulaire informatique
 const vocabulary = {
     "Cadre de travail": "Framework",
-    "Environnement de développement (IDE)":
-        "Integrated development environment",
+    "Environnement de développement": "Integrated development environment",
     Maintenance: "Maintenance",
     Sauvegarde: "Backup",
     "Base de données": "Database",
@@ -18,10 +17,10 @@ const vocabulary = {
     "Pare-feu": "Firewall",
     "Logiciel espion": "Spyware",
     "Bande passante": "Bandwidth",
-    "Interface de programmation (API)": "Application Programming Interface",
+    "Interface de programmation": "Application Programming Interface",
     Balise: "Markup",
     "Langage binaire": "Binary language",
-    "Système de gestion de contenu (CMS)": "Content management system",
+    "Système de gestion de contenu": "Content management system",
     Serveur: "Server",
     "Service d'hébergement": "Hosting service",
     "Plan de site / Arborescence": "Sitemap",
@@ -32,9 +31,8 @@ const vocabulary = {
     "Charte graphique": "Graphic charter",
     Bannière: "Banner",
     Référencement: "Referencing",
-    "Optimisation pour les moteurs de recherche (SEO)":
-        "Search Engine Optimization",
-    "Référencement payant (SEA)": "Search Engine Advertising",
+    "Optimisation pour les moteurs de recherche": "Search Engine Optimization",
+    "Référencement payant": "Search Engine Advertising",
     "Référencement abusif": "Spamdexing",
     "Réseau Social": "Social Network",
     "Protocole de transfert de fichier": "File Transfer Protocol",
