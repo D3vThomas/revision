@@ -53,22 +53,24 @@ const vocabulary = {
 };
 
 vocabulaire_expressions = {
+    "Déclarer une variable en langage java":
+        "Declare a variable in java language",
     "Utiliser des tableaux pour stocker plusieurs valeurs dans une seule variable":
         "Use arrays to store multiple values in a single variable",
-    "Créer une chaîne en Java": "Create a string in Java",
+    "Créer une chaîne en java": "Create a string in java",
     "Exécuter des boucles": "Execute loops",
     "Effectuer une opération d'entrée ou de sortie":
         "Perform an input or output operation",
     "Traiter une information représentée sous sa forme binaire":
         "Process a binary information",
-    "Comprendre les principaux livrables, les jalons, ainsi que les rôles et responsabilités":
-        "Understand the main deliverables, milestones, roles and responsibilities",
-    "Utiliser les opérateurs booléens pour affiner les résultats de recherche":
-        "Use Boolean operators to refine search results",
+    "Comprendre les principaux livrables, les jalons, ainsi que les rôles et les responsabilités de chaque personne impliquée dans une charte de projet":
+        "Understand the main deliverables, milestones, as well as the roles and responsibilities of each person involved in a project charter",
+    "Utiliser les opérateurs booléens pour réduire, étendre ou affiner les résultats de recherche":
+        "Use Boolean operators to narrow, expand, or refine search results",
     "Créer une procédure stockée dans une base de données":
         "Create a stored procedure in a database",
-    "Utiliser les algorithmes les plus efficaces possibles":
-        "Use the most efficient algorithms possible",
+    "Utiliser les algorithmes les plus efficaces possibles pour résoudre des problèmes":
+        "Use the most efficient algorithms possible to solve problems",
     "Développer des solutions logicielles fiables et fonctionnelles":
         "Develop reliable and functional software solutions",
     "Se positionner comme expert technique":
@@ -85,14 +87,14 @@ vocabulaire_expressions = {
     "Collaborer avec des développeurs": "Collaborate with developers",
     "Utiliser des outils de développement": "Use development tools",
     "Créer des applications ergonomiques": "Create ergonomic applications",
-    "Écouter, analyser et rédiger les besoins":
+    "Ecouter, analyser et rédiger les besoins":
         "Listen, analyze and write needs",
     "Être garant de la pérennité et de l'évolution des solutions":
         "Guarantee the sustainability and evolution of solutions",
     "Respecter les délais, les coûts et la qualité":
         "Meet deadlines, costs and quality",
     "Satisfaire les attentes du client": "Meet client expectations",
-    "Piloter un projet d'ingénierie logicielle":
+    "Piloter une projet d'ingénierie logicielle":
         "Lead a software engineering project",
     "Construire un cahier des charges": "Build specifications",
     "Gérer les données de l'entreprise": "Manage company data",
@@ -104,7 +106,7 @@ vocabulaire_expressions = {
     "Analyser et identifier tous les problèmes potentiels":
         "Analyze and identify any potential problems",
     "Améliorer et maintenir le logiciel à long terme":
-        "Improve and maintain the software in the long term",
+        "Improve and maintain the software in the long",
     "Traduire le besoin du client en demandes fonctionnelles":
         "Translate the client's need into functional demands",
     "Analyser et décrire les tâches à réaliser par l'ordinateur":
@@ -118,15 +120,15 @@ vocabulaire_expressions = {
     "Maintenir en condition opérationnelle le logiciel":
         "Keep the software in operational condition",
     "Mettre en production à l'issue des phases de qualification et d'intégration":
-        "Put into production after qualification and integration phases",
+        "Put into production at the end of the qualification and integration phases",
     "Rédiger le code source qui constitue le corps du logiciel":
         "Write the source code that forms the body of the software",
-    "Mettre en œuvre l'agilité au sein d'une équipe de développeurs":
+    "Mettre en oeuvre l'agilité au sein d'une équipe de développeurs":
         "Implement agility as part of a team of developers",
     "Diriger des projets collaboratifs": "Lead collaborative projects",
     "Vérifier que les fonctions offertes par le logiciel correspondent aux attentes du client":
-        "Ensure the software features meet client expectations",
-    "Définir les étapes clés du cycle de vie du projet":
+        "Make sure the features offered by the software are in line with the customer's expectations",
+    "Définir les étapes clés de cycle de vie du projet":
         "Define key lifecycle milestones for the project",
     "Intégrer les environnements de développement":
         "Integrate development environments",
